@@ -8,12 +8,48 @@ const Index = () => {
   const [cartItems, setCartItems] = useState(0);
 
   const categories = [
-    { id: 1, name: 'Фрезерные станки', icon: 'Box', count: 45 },
-    { id: 2, name: 'Лазерные граверы', icon: 'Zap', count: 32 },
-    { id: 3, name: 'Арт-объекты', icon: 'Sparkles', count: 128 },
-    { id: 4, name: 'Комплектующие', icon: 'Settings', count: 89 },
-    { id: 5, name: 'Инструменты', icon: 'Wrench', count: 56 },
-    { id: 6, name: 'Материалы', icon: 'Package', count: 73 },
+    { 
+      id: 1, 
+      name: 'Фрезерные станки', 
+      count: 45,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
+      gradient: 'from-blue-600 to-blue-400'
+    },
+    { 
+      id: 2, 
+      name: 'Лазерные граверы', 
+      count: 32,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
+      gradient: 'from-orange-600 to-orange-400'
+    },
+    { 
+      id: 3, 
+      name: 'Арт-объекты', 
+      count: 128,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
+      gradient: 'from-purple-600 to-purple-400'
+    },
+    { 
+      id: 4, 
+      name: 'Комплектующие', 
+      count: 89,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
+      gradient: 'from-green-600 to-green-400'
+    },
+    { 
+      id: 5, 
+      name: 'Инструменты', 
+      count: 56,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
+      gradient: 'from-red-600 to-red-400'
+    },
+    { 
+      id: 6, 
+      name: 'Материалы', 
+      count: 73,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
+      gradient: 'from-teal-600 to-teal-400'
+    },
   ];
 
   const newProducts = [
@@ -140,21 +176,21 @@ const Index = () => {
   ];
 
   const ProductCard = ({ product }: any) => (
-    <Card className="group overflow-hidden border hover:shadow-xl transition-all duration-300">
+    <Card className="group overflow-hidden border-0 hover:shadow-2xl transition-all duration-300 bg-white">
       <div className="relative overflow-hidden">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
         />
-        <Badge className={`absolute top-3 right-3 ${product.badgeColor} text-white font-semibold`}>
+        <Badge className={`absolute top-3 right-3 ${product.badgeColor} text-white font-semibold shadow-lg`}>
           {product.badge}
         </Badge>
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
-          <Button size="icon" variant="secondary" className="hover-scale">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+          <Button size="icon" variant="secondary" className="hover-scale shadow-xl backdrop-blur-sm bg-white/90">
             <Icon name="Eye" size={20} />
           </Button>
-          <Button size="icon" variant="secondary" className="hover-scale">
+          <Button size="icon" variant="secondary" className="hover-scale shadow-xl backdrop-blur-sm bg-white/90">
             <Icon name="Heart" size={20} />
           </Button>
         </div>
@@ -228,23 +264,28 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative h-[600px] bg-gradient-to-r from-primary to-primary/80 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg')] bg-cover bg-center opacity-20"></div>
+      <section className="relative h-[650px] bg-gradient-to-br from-primary via-primary to-secondary text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg')] bg-cover bg-center opacity-15"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+        <div className="absolute top-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
         <div className="relative container mx-auto px-4 h-full flex items-center">
-          <div className="max-w-2xl">
-            <Badge className="mb-4 bg-accent text-white text-sm">Зимняя распродажа 2024</Badge>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <div className="max-w-3xl">
+            <Badge className="mb-6 bg-accent hover:bg-accent/90 text-white text-sm px-4 py-2 shadow-xl animate-pulse">
+              🎉 Зимняя распродажа 2024
+            </Badge>
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Профессиональное оборудование со скидкой до 40%
             </h2>
-            <p className="text-xl mb-8 text-white/90">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud.
+            <p className="text-xl md:text-2xl mb-10 text-white/90 leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud exercitation.
             </p>
-            <div className="flex gap-4">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8">
+            <div className="flex flex-wrap gap-4">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-10 py-6 text-lg shadow-2xl hover:shadow-accent/50 transition-all">
                 Смотреть каталог
-                <Icon name="ArrowRight" size={20} className="ml-2" />
+                <Icon name="ArrowRight" size={22} className="ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white/20">
+              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white hover:bg-white/20 px-10 py-6 text-lg shadow-xl">
                 Связаться с нами
               </Button>
             </div>
@@ -253,17 +294,28 @@ const Index = () => {
       </section>
 
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-primary mb-8 text-center">Категории товаров</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <h2 className="text-4xl font-bold text-primary mb-3 text-center">Категории товаров</h2>
+        <p className="text-center text-muted-foreground mb-10">Выберите интересующую категорию для быстрого поиска</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
-            <Card key={category.id} className="hover:shadow-lg transition-shadow cursor-pointer group">
-              <CardContent className="p-6 text-center">
-                <div className="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/20 transition-colors">
-                  <Icon name={category.icon as any} size={32} className="text-secondary" />
+            <Card key={category.id} className="group overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer border-0">
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-60 group-hover:opacity-70 transition-opacity`}></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6">
+                  <h3 className="text-2xl font-bold mb-2 text-center">{category.name}</h3>
+                  <Badge variant="secondary" className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
+                    {category.count} товаров
+                  </Badge>
                 </div>
-                <h3 className="font-semibold mb-1">{category.name}</h3>
-                <p className="text-sm text-muted-foreground">{category.count} товаров</p>
-              </CardContent>
+                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Icon name="ArrowRight" size={20} className="text-primary" />
+                </div>
+              </div>
             </Card>
           ))}
         </div>
@@ -309,36 +361,36 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-secondary/10 to-accent/10 py-16">
+      <section className="bg-gradient-to-r from-secondary/5 via-accent/5 to-secondary/5 py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="flex items-start gap-4">
-              <div className="bg-secondary text-white p-3 rounded-lg flex-shrink-0">
-                <Icon name="Truck" size={32} />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-1">Быстрая доставка</h3>
-                <p className="text-sm text-muted-foreground">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-accent text-white p-3 rounded-lg flex-shrink-0">
-                <Icon name="Shield" size={32} />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-1">Гарантия качества</h3>
-                <p className="text-sm text-muted-foreground">Sed do eiusmod tempor incididunt ut labore et dolore</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-primary text-white p-3 rounded-lg flex-shrink-0">
-                <Icon name="Headphones" size={32} />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-1">Поддержка 24/7</h3>
-                <p className="text-sm text-muted-foreground">Ut enim ad minim veniam quis nostrud exercitation</p>
-              </div>
-            </div>
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="bg-gradient-to-br from-secondary to-secondary/80 text-white p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg">
+                  <Icon name="Truck" size={32} />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-primary">Быстрая доставка</h3>
+                <p className="text-muted-foreground leading-relaxed">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod</p>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="bg-gradient-to-br from-accent to-accent/80 text-white p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg">
+                  <Icon name="Shield" size={32} />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-primary">Гарантия качества</h3>
+                <p className="text-muted-foreground leading-relaxed">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white/80 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="bg-gradient-to-br from-primary to-primary/80 text-white p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 shadow-lg">
+                  <Icon name="Headphones" size={32} />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-primary">Поддержка 24/7</h3>
+                <p className="text-muted-foreground leading-relaxed">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
