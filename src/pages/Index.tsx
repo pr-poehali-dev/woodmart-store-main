@@ -7,145 +7,136 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [cartItems, setCartItems] = useState(0);
 
+  const categories = [
+    { id: 1, name: 'Фрезерные станки', icon: 'Box', count: 45 },
+    { id: 2, name: 'Лазерные граверы', icon: 'Zap', count: 32 },
+    { id: 3, name: 'Арт-объекты', icon: 'Sparkles', count: 128 },
+    { id: 4, name: 'Комплектующие', icon: 'Settings', count: 89 },
+    { id: 5, name: 'Инструменты', icon: 'Wrench', count: 56 },
+    { id: 6, name: 'Материалы', icon: 'Package', count: 73 },
+  ];
+
   const newProducts = [
     {
-      id: 1,
-      name: 'ЧПУ Фрезер 3040',
-      price: 185000,
-      oldPrice: null,
+      id: 1, name: 'ЧПУ Фрезер 3040', price: 185000, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
-      rating: 5,
-      reviews: 12,
-      badge: 'Новинка',
-      badgeColor: 'bg-secondary'
+      rating: 5, reviews: 12, badge: 'Новинка', badgeColor: 'bg-secondary'
     },
     {
-      id: 2,
-      name: 'Лазерный гравер CO2 80W',
-      price: 245000,
-      oldPrice: null,
+      id: 2, name: 'Лазерный гравер CO2 80W', price: 245000, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
-      rating: 5,
-      reviews: 8,
-      badge: 'Новинка',
-      badgeColor: 'bg-secondary'
+      rating: 5, reviews: 8, badge: 'Новинка', badgeColor: 'bg-secondary'
     },
     {
-      id: 3,
-      name: 'ЧПУ Станок 6090 Pro',
-      price: 325000,
-      oldPrice: null,
+      id: 3, name: 'ЧПУ Станок 6090 Pro', price: 325000, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
-      rating: 5,
-      reviews: 15,
-      badge: 'Новинка',
-      badgeColor: 'bg-secondary'
+      rating: 5, reviews: 15, badge: 'Новинка', badgeColor: 'bg-secondary'
     },
     {
-      id: 4,
-      name: 'Фрезер Desktop Mini',
-      price: 95000,
-      oldPrice: null,
+      id: 4, name: 'Фрезер Desktop Mini', price: 95000, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
-      rating: 4,
-      reviews: 6,
-      badge: 'Новинка',
-      badgeColor: 'bg-secondary'
-    }
+      rating: 4, reviews: 6, badge: 'Новинка', badgeColor: 'bg-secondary'
+    },
+    {
+      id: 5, name: 'Гравер портативный 50W', price: 135000, oldPrice: null,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
+      rating: 5, reviews: 9, badge: 'Новинка', badgeColor: 'bg-secondary'
+    },
+    {
+      id: 6, name: 'ЧПУ Станок 4040 Plus', price: 215000, oldPrice: null,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
+      rating: 5, reviews: 11, badge: 'Новинка', badgeColor: 'bg-secondary'
+    },
   ];
 
   const hitProducts = [
     {
-      id: 5,
-      name: 'ЧПУ Фрезер 6040Z',
-      price: 198000,
-      oldPrice: null,
+      id: 7, name: 'ЧПУ Фрезер 6040Z', price: 198000, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
-      rating: 5,
-      reviews: 45,
-      badge: 'Хит',
-      badgeColor: 'bg-accent'
+      rating: 5, reviews: 45, badge: 'Хит', badgeColor: 'bg-accent'
     },
     {
-      id: 6,
-      name: 'Резной арт-объект "Волна"',
-      price: 12500,
-      oldPrice: null,
+      id: 8, name: 'Резной арт-объект "Волна"', price: 12500, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
-      rating: 5,
-      reviews: 67,
-      badge: 'Хит',
-      badgeColor: 'bg-accent'
+      rating: 5, reviews: 67, badge: 'Хит', badgeColor: 'bg-accent'
     },
     {
-      id: 7,
-      name: 'Гравировальный станок 4040',
-      price: 165000,
-      oldPrice: null,
+      id: 9, name: 'Гравировальный станок 4040', price: 165000, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
-      rating: 5,
-      reviews: 38,
-      badge: 'Хит',
-      badgeColor: 'bg-accent'
+      rating: 5, reviews: 38, badge: 'Хит', badgeColor: 'bg-accent'
     },
     {
-      id: 8,
-      name: 'Панель декоративная 3D',
-      price: 8900,
-      oldPrice: null,
+      id: 10, name: 'Панель декоративная 3D', price: 8900, oldPrice: null,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
-      rating: 5,
-      reviews: 52,
-      badge: 'Хит',
-      badgeColor: 'bg-accent'
-    }
+      rating: 5, reviews: 52, badge: 'Хит', badgeColor: 'bg-accent'
+    },
+    {
+      id: 11, name: 'Фрезер CNC Professional', price: 289000, oldPrice: null,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
+      rating: 5, reviews: 54, badge: 'Хит', badgeColor: 'bg-accent'
+    },
+    {
+      id: 12, name: 'Арт-панно "Геометрия"', price: 15900, oldPrice: null,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
+      rating: 5, reviews: 41, badge: 'Хит', badgeColor: 'bg-accent'
+    },
   ];
 
   const saleProducts = [
     {
-      id: 9,
-      name: 'ЧПУ Фрезер 3020T',
-      price: 125000,
-      oldPrice: 159000,
+      id: 13, name: 'ЧПУ Фрезер 3020T', price: 125000, oldPrice: 159000,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
-      rating: 4,
-      reviews: 23,
-      badge: '-21%',
-      badgeColor: 'bg-destructive'
+      rating: 4, reviews: 23, badge: '-21%', badgeColor: 'bg-destructive'
     },
     {
-      id: 10,
-      name: 'Лазер 40W Desktop',
-      price: 89000,
-      oldPrice: 125000,
+      id: 14, name: 'Лазер 40W Desktop', price: 89000, oldPrice: 125000,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
-      rating: 4,
-      reviews: 18,
-      badge: '-29%',
-      badgeColor: 'bg-destructive'
+      rating: 4, reviews: 18, badge: '-29%', badgeColor: 'bg-destructive'
     },
     {
-      id: 11,
-      name: 'Арт-панно "Геометрия"',
-      price: 6500,
-      oldPrice: 9500,
+      id: 15, name: 'Арт-панно "Абстракция"', price: 6500, oldPrice: 9500,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
-      rating: 5,
-      reviews: 31,
-      badge: '-32%',
-      badgeColor: 'bg-destructive'
+      rating: 5, reviews: 31, badge: '-32%', badgeColor: 'bg-destructive'
     },
     {
-      id: 12,
-      name: 'Фрезер CNC 2030',
-      price: 78000,
-      oldPrice: 98000,
+      id: 16, name: 'Фрезер CNC 2030', price: 78000, oldPrice: 98000,
       image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
-      rating: 4,
-      reviews: 14,
-      badge: '-20%',
-      badgeColor: 'bg-destructive'
-    }
+      rating: 4, reviews: 14, badge: '-20%', badgeColor: 'bg-destructive'
+    },
+    {
+      id: 17, name: 'Гравер лазерный 30W', price: 65000, oldPrice: 89000,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
+      rating: 4, reviews: 19, badge: '-27%', badgeColor: 'bg-destructive'
+    },
+    {
+      id: 18, name: 'Декор "Орнамент"', price: 4900, oldPrice: 7500,
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
+      rating: 5, reviews: 27, badge: '-35%', badgeColor: 'bg-destructive'
+    },
+  ];
+
+  const news = [
+    {
+      id: 1,
+      title: 'Новая линейка профессионального оборудования',
+      excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
+      date: '15 декабря 2024',
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg',
+    },
+    {
+      id: 2,
+      title: 'Акция на арт-объекты до конца месяца',
+      excerpt: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
+      date: '12 декабря 2024',
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/28323701-098e-4fc9-a83f-8155ff56cc0d.jpg',
+    },
+    {
+      id: 3,
+      title: 'Обновление программного обеспечения',
+      excerpt: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      date: '8 декабря 2024',
+      image: 'https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/3de33599-4de1-4914-afcf-f9f8fdd5acbc.jpg',
+    },
   ];
 
   const ProductCard = ({ product }: any) => (
@@ -205,12 +196,15 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-8">
-              <h1 className="text-2xl font-bold">CNC-MARKET</h1>
+              <div className="flex items-center gap-2">
+                <Icon name="Hexagon" size={32} className="text-accent" />
+                <h1 className="text-2xl font-bold">ShopName</h1>
+              </div>
               <nav className="hidden md:flex items-center gap-6">
-                <a href="#" className="hover:text-secondary transition-colors">Оборудование</a>
-                <a href="#" className="hover:text-secondary transition-colors">Арт-объекты</a>
-                <a href="#" className="hover:text-secondary transition-colors">Услуги</a>
-                <a href="#" className="hover:text-secondary transition-colors">О нас</a>
+                <a href="#" className="hover:text-secondary transition-colors">Каталог</a>
+                <a href="#" className="hover:text-secondary transition-colors">Акции</a>
+                <a href="#" className="hover:text-secondary transition-colors">Новости</a>
+                <a href="#" className="hover:text-secondary transition-colors">Доставка</a>
                 <a href="#" className="hover:text-secondary transition-colors">Контакты</a>
               </nav>
             </div>
@@ -238,19 +232,20 @@ const Index = () => {
         <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/6a41afde-0278-4e7b-bc9a-a5afc5e9d9fc/files/df773fc4-2819-493c-8582-68b29c0fe01d.jpg')] bg-cover bg-center opacity-20"></div>
         <div className="relative container mx-auto px-4 h-full flex items-center">
           <div className="max-w-2xl">
+            <Badge className="mb-4 bg-accent text-white text-sm">Зимняя распродажа 2024</Badge>
             <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Оборудование ЧПУ для профессионалов
+              Профессиональное оборудование со скидкой до 40%
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Фрезерные и лазерные станки. Изготовление арт-объектов на заказ. Доставка по всей России.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud.
             </p>
             <div className="flex gap-4">
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8">
-                Каталог оборудования
+                Смотреть каталог
                 <Icon name="ArrowRight" size={20} className="ml-2" />
               </Button>
               <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white/20">
-                Консультация
+                Связаться с нами
               </Button>
             </div>
           </div>
@@ -258,10 +253,48 @@ const Index = () => {
       </section>
 
       <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-primary mb-8 text-center">Категории товаров</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {categories.map((category) => (
+            <Card key={category.id} className="hover:shadow-lg transition-shadow cursor-pointer group">
+              <CardContent className="p-6 text-center">
+                <div className="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/20 transition-colors">
+                  <Icon name={category.icon as any} size={32} className="text-secondary" />
+                </div>
+                <h3 className="font-semibold mb-1">{category.name}</h3>
+                <p className="text-sm text-muted-foreground">{category.count} товаров</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-accent/5 py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-4xl font-bold text-primary mb-2">🔥 Акции и скидки</h2>
+              <p className="text-muted-foreground">Не упустите выгодные предложения этой недели</p>
+            </div>
+            <Button variant="outline" className="hidden md:flex">
+              Все акции
+              <Icon name="ArrowRight" size={18} className="ml-2" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {saleProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-4xl font-bold text-primary mb-2">Новинки</h2>
-            <p className="text-muted-foreground">Последние поступления оборудования и изделий</p>
+            <h2 className="text-4xl font-bold text-primary mb-2">✨ Новинки</h2>
+            <p className="text-muted-foreground">Последние поступления в нашем магазине</p>
           </div>
           <Button variant="outline" className="hidden md:flex">
             Смотреть все
@@ -269,7 +302,7 @@ const Index = () => {
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {newProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -280,30 +313,30 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="flex items-start gap-4">
-              <div className="bg-secondary text-white p-3 rounded-lg">
+              <div className="bg-secondary text-white p-3 rounded-lg flex-shrink-0">
                 <Icon name="Truck" size={32} />
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-1">Доставка по России</h3>
-                <p className="text-sm text-muted-foreground">Быстрая доставка в любой регион</p>
+                <h3 className="font-bold text-lg mb-1">Быстрая доставка</h3>
+                <p className="text-sm text-muted-foreground">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="bg-accent text-white p-3 rounded-lg">
+              <div className="bg-accent text-white p-3 rounded-lg flex-shrink-0">
                 <Icon name="Shield" size={32} />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Гарантия качества</h3>
-                <p className="text-sm text-muted-foreground">2 года гарантии на всё оборудование</p>
+                <p className="text-sm text-muted-foreground">Sed do eiusmod tempor incididunt ut labore et dolore</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="bg-primary text-white p-3 rounded-lg">
+              <div className="bg-primary text-white p-3 rounded-lg flex-shrink-0">
                 <Icon name="Headphones" size={32} />
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-1">Техподдержка 24/7</h3>
-                <p className="text-sm text-muted-foreground">Помощь специалистов в любое время</p>
+                <h3 className="font-bold text-lg mb-1">Поддержка 24/7</h3>
+                <p className="text-sm text-muted-foreground">Ut enim ad minim veniam quis nostrud exercitation</p>
               </div>
             </div>
           </div>
@@ -313,8 +346,8 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-4xl font-bold text-primary mb-2">Хиты продаж</h2>
-            <p className="text-muted-foreground">Самые популярные товары нашего магазина</p>
+            <h2 className="text-4xl font-bold text-primary mb-2">⭐ Хиты продаж</h2>
+            <p className="text-muted-foreground">Самые популярные товары среди наших покупателей</p>
           </div>
           <Button variant="outline" className="hidden md:flex">
             Смотреть все
@@ -322,7 +355,7 @@ const Index = () => {
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {hitProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -331,13 +364,14 @@ const Index = () => {
 
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Индивидуальное производство</h2>
+          <Icon name="Sparkles" size={48} className="mx-auto mb-4 text-accent" />
+          <h2 className="text-4xl font-bold mb-4">Индивидуальные заказы</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Создаём уникальные арт-объекты, декоративные панели и рекламные конструкции по вашим эскизам
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8">
-            Заказать изделие
-            <Icon name="Sparkles" size={20} className="ml-2" />
+            Оставить заявку
+            <Icon name="ArrowRight" size={20} className="ml-2" />
           </Button>
         </div>
       </section>
@@ -345,19 +379,61 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-4xl font-bold text-primary mb-2">Акции и скидки</h2>
-            <p className="text-muted-foreground">Выгодные предложения на популярные позиции</p>
+            <h2 className="text-4xl font-bold text-primary mb-2">📰 Новости и статьи</h2>
+            <p className="text-muted-foreground">Будьте в курсе последних событий и полезных материалов</p>
           </div>
           <Button variant="outline" className="hidden md:flex">
-            Смотреть все
+            Все новости
             <Icon name="ArrowRight" size={18} className="ml-2" />
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {saleProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {news.map((item) => (
+            <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
+              <div className="relative overflow-hidden h-48">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                  <Icon name="Calendar" size={16} />
+                  <span>{item.date}</span>
+                </div>
+                <h3 className="font-bold text-lg mb-2 line-clamp-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{item.excerpt}</p>
+                <Button variant="link" className="p-0 h-auto">
+                  Читать далее
+                  <Icon name="ArrowRight" size={16} className="ml-1" />
+                </Button>
+              </CardContent>
+            </Card>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-primary text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <Icon name="Mail" size={48} className="mx-auto mb-4 text-accent" />
+            <h2 className="text-3xl font-bold mb-4">Подпишитесь на рассылку</h2>
+            <p className="text-white/80 mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            </p>
+            <div className="flex gap-2 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Ваш email"
+                className="flex-1 px-4 py-3 rounded-lg text-black"
+              />
+              <Button className="bg-accent hover:bg-accent/90 text-white">
+                Подписаться
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -365,9 +441,12 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-bold text-xl mb-4">CNC-MARKET</h3>
+              <div className="flex items-center gap-2 mb-4">
+                <Icon name="Hexagon" size={32} className="text-accent" />
+                <h3 className="font-bold text-xl">ShopName</h3>
+              </div>
               <p className="text-sm text-white/80">
-                Профессиональное оборудование ЧПУ и изготовление арт-объектов с 2015 года
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
               </p>
             </div>
             <div>
@@ -393,21 +472,21 @@ const Index = () => {
               <ul className="space-y-2 text-sm text-white/80">
                 <li className="flex items-center gap-2">
                   <Icon name="Phone" size={16} />
-                  +7 (800) 555-35-35
+                  +7 (XXX) XXX-XX-XX
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="Mail" size={16} />
-                  info@cnc-market.ru
+                  info@example.com
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="MapPin" size={16} />
-                  Москва, ул. Промышленная 1
+                  г. Москва, ул. Примерная, д. 123
                 </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/60">
-            © 2024 CNC-MARKET. Все права защищены.
+            © 2024 ShopName. Все права защищены.
           </div>
         </div>
       </footer>
